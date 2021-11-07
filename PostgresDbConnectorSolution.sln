@@ -19,6 +19,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{040800
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.Implementations", "Common\DataAccess.Implementations\DataAccess.Implementations.csproj", "{7912A9F7-FAA4-41BE-A454-D2E1C5476D92}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbSetup", "DbSetup", "{D1CE6FFF-E075-40DC-94D1-E9A5B98F017D}"
+	ProjectSection(SolutionItems) = preProject
+		DbSetup\Create tables.sql = DbSetup\Create tables.sql
+		DbSetup\Setup data.sql = DbSetup\Setup data.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +60,7 @@ Global
 		{65F7C18A-413C-4B77-A4B3-7C51C9D3B17F} = {381ADE73-1B59-4E85-8C9A-B5E8F4405343}
 		{9BC3FCE1-B3C0-4442-B1F4-494023198BD4} = {C23097DA-B1A0-4831-861A-FB2FDDDE7B11}
 		{7912A9F7-FAA4-41BE-A454-D2E1C5476D92} = {040800C3-2525-4F40-B4BD-F21F16372470}
+		{D1CE6FFF-E075-40DC-94D1-E9A5B98F017D} = {C23097DA-B1A0-4831-861A-FB2FDDDE7B11}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {44D6B8D4-419E-4948-9F8E-9C295E040EE9}
