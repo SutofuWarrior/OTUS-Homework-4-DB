@@ -10,10 +10,22 @@ namespace PostgresDBConnector
         static void Main()
         {
             using var db = new DatabaseContext();
-            Menu(db);
+            var interactor = new PostgresDbInteractor(db);
+
+            interactor.Menu();
+        }
+    }
+
+    class PostgresDbInteractor
+    {
+        private readonly DatabaseContext db;
+
+        public PostgresDbInteractor(DatabaseContext context)
+        {
+            db = context;
         }
 
-        static void Menu(DatabaseContext db)
+        public void Menu()
         {
             ConsoleKeyInfo key;
 
@@ -37,27 +49,27 @@ namespace PostgresDBConnector
                         break;
 
                     case ConsoleKey.D1:
-                        ShowAllTables(db);
+                        ShowAllTables();
                         break;
 
                     case ConsoleKey.D2:
-                        AddCourse(db);
+                        AddCourse();
                         break;
 
                     case ConsoleKey.D3:
-                        AddLesson(db);
+                        AddLesson();
                         break;
 
                     case ConsoleKey.D4:
-                        AddStudent(db);
+                        AddStudent();
                         break;
 
                     case ConsoleKey.D5:
-                        AddStudentToCourse(db);
+                        AddStudentToCourse();
                         break;
 
                     case ConsoleKey.D6:
-                        AddStudentLesson(db);
+                        AddStudentLesson();
                         break;
                 }
 
@@ -65,7 +77,7 @@ namespace PostgresDBConnector
 
         }
 
-        static void ShowAllTables(DatabaseContext db)
+        private void ShowAllTables()
         {
             const string SeparatorLine = "----------------------------------------";
             Console.WriteLine();
@@ -106,7 +118,7 @@ namespace PostgresDBConnector
                     $"Course: {sl.StudentCourse.Course.Name}, Lesson: {sl.Lesson.Name}, Grade: {sl.HomeworkGrade}");
         }
 
-        static void AddCourse(DatabaseContext db)
+        private void AddCourse()
         {
             Console.Clear();
             var repo = new CourseRepository(db);
@@ -120,7 +132,7 @@ namespace PostgresDBConnector
             repo.SaveChanges();
         }
 
-        static void AddLesson(DatabaseContext db)
+        private void AddLesson()
         {
             Console.Clear();
             var repo = new LessonRepository(db);
@@ -137,7 +149,7 @@ namespace PostgresDBConnector
             repo.SaveChanges();
         }
 
-        static void AddStudent(DatabaseContext db)
+        private void AddStudent()
         {
             Console.Clear();
             var repo = new StudentRepository(db);
@@ -151,7 +163,7 @@ namespace PostgresDBConnector
             repo.SaveChanges();
         }
 
-        static void AddStudentToCourse(DatabaseContext db)
+        private void AddStudentToCourse()
         {
             Console.Clear();
             var repo = new StudentCoursesRepository(db);
@@ -168,7 +180,7 @@ namespace PostgresDBConnector
             repo.SaveChanges();
         }
 
-        static void AddStudentLesson(DatabaseContext db)
+        private void AddStudentLesson()
         {
             Console.Clear();
             var repo = new StudentLessonsRepository(db);

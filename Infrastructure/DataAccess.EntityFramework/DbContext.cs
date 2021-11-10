@@ -12,7 +12,6 @@ namespace DataAccess.EntityFramework
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=otus_db;User ID=postgres;password=123;");
         }
 
